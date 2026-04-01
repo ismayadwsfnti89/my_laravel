@@ -36,5 +36,16 @@ class CategoryController extends Controller
         $category->delete();
 
         return redirect()->route('admin.category.index')->with('success','Category delete succesfully');
+    }
+    public function edit($id){
+        $data['category'] = Category::findOrFail($id);
+        return view('admin.category.edit',$data);
+    }
+    public function update(Request $request, $id){
+        $request->validate([
+            'name' -> $request->name
+                           ])
+        return redirect()->route('admin.category.index')->with('success','Category updated successfully.');
+    }
 }
 
