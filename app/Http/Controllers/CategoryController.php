@@ -29,7 +29,12 @@ class CategoryController extends Controller
             'name' => $request->name
         ]);
 
-        return redirect()->route('category.index')->with('success','Category created succesfully');
+        return redirect()->route('admin.category.index')->with('success','Category created succesfully');
     }
+    public function destroy($id){
+        $category = Category::findOrFail($id);
+        $category->delete();
+
+        return redirect()->route('admin.category.index')->with('success','Category delete succesfully');
 }
 
