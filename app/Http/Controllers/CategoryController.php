@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 
 class CategoryController extends Controller
 {
@@ -38,6 +39,11 @@ class CategoryController extends Controller
         return redirect()->route('admin.category.index')->with('success','Category delete succesfully');
     }
     public function edit($id){
+         try{
+            $id = Crypt::decrypt($id);
+        }catch (DecryptException $e){
+            abort(404);
+        }
         $data['category'] = Category::findOrFail($id);
         return view('admin.category.edit',$data);
     }
