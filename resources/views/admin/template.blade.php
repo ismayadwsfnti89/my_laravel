@@ -25,7 +25,7 @@
                         <a class="nav-link " href="category">Category</a>
                     </li>
                     <li class="nav-item" >
-                        <a class="nav-link " href="product">Product</a>
+                        <a class="nav-link " href="products">Product</a>
                     </li>
                 </ul>
             </div>

@@ -7,7 +7,7 @@
                 <h3>Data Product</h3>
             </div>
             <div class="col-md-4">
-                <form action="/product" method="get">
+                <form action="/products" method="GET">
                     <div class="input-group">
                         <input type="search" name="search" class="form-control">
                         <input type="submit" value="search" class="btn btn-primary">
@@ -15,7 +15,7 @@
                 </form>
             </div>
             <div class="col-md-2">
-                <a href="{{ route('product.create')}}" class="btn btn-success">Tambah Data</a>
+                <a href="{{ route('admin.products.create')}}" class="btn btn-success">Tambah Data</a>
             </div>
         </div>
         <div class="row">
@@ -46,10 +46,17 @@
                                 <td>{{ $item->name }}</td>
                                 <td>{{ $item->price }}</td>
                                 <td>{{ $item->stok }}</td>
-                                <td>{{ $item->category_id }}</td>
+                                <td>{{ $item->category->name }}</td>
+                                {{-- <td><img src="{{ asset('storage/'.$item->image) }}" alt="" style="width: 50px;height: 50px;"></td> --}}
                                 <td>{{ $item->description }}</td>
                                 <td>{{ $item->created_at }}</td>
                                 <td>{{ $item->updated_at }}</td>
+                                <td>
+                                    <a href="{{ route('admin.products.edit', Crypt::encrypt($item->id)) }}" class="btn btn-warning">
+                                    {{-- <form action="{{ route('admin.products.destroy',) Crypt::encrypt($item->id)) }}" method="post" class="btn btn-warning">"
+                                        @csrf
+                                        @method('delete') --}}
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

@@ -13,7 +13,7 @@
             </ul>
         </div>
         @endif
-        <form action="{{ route('product.store')}}" method="post">
+        <form action="{{ route('admin.products.store')}}" method="POST">
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">Nama Product</label>
@@ -28,12 +28,20 @@
                 <input type="numeric" name="stok" id="stok" class="form-control">
             </div>
             <div class="mb-3">
-                <label for="category_id" class="form-label">Id kategori</label>
-                <input type="numeric" name="category_id" id="category_id" class="form-control">
+                <label for="category_id" class="form-label">Category</label>
+                <select type="numeric" name="category_id" id="category_id" class="form-select">
+                    <option value="">-- Pilih Category --</option>
+                    @foreach ($categories as $item )
+                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                    @endforeach
+                </select>
             </div>
+            {{-- <div class="mb-3">
+                <label for="image" class="form-label">Image</label>
+                <input type="file" name="image" id="image" class="form-control"> --}}
             <div class="mb-3">
                 <label for="description" class="form-label">Deskripsi</label>
-                <input type="text" name="description" id="description" class="form-control">
+                <textarea type="text" name="description" id="description" cols="30" row="10" class="form-control"></textarea>
             </div>
             <input type="submit" value="Simpan" class="btn btn-primary">
         </form>

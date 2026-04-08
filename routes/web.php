@@ -10,15 +10,13 @@ Route::get('/', [HomeController::class, 'welcome']);
 
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 
-// --- CATEGORY ROUTES ---
+
 Route::get('/category', [CategoryController::class, 'index'])->name('admin.category.index');
-Route::get('/category/create', [CategoryController::class, 'create'])->name('admin.category.create'); // Pindahkan ke atas
-Route::post('/category/store', [CategoryController::class, 'store'])->name('admin.category.store'); // Tambahkan 'admin.' biar konsisten
+Route::get('/category/create', [CategoryController::class, 'create'])->name('admin.category.create'); 
+Route::post('/category/store', [CategoryController::class, 'store'])->name('admin.category.store'); 
 Route::get('/category/{id}', [CategoryController::class, 'edit'])->name('admin.category.edit');
 Route::put('/category/{id}', [CategoryController::class, 'update'])->name('admin.category.update');
 Route::delete('/category/{id}', [CategoryController::class, 'destroy'])->name('admin.category.destroy');
-
-// --- PRODUCT ROUTES ---
 Route::get('/products', [ProductController::class, 'index'])->name('admin.products.index');
 Route::get('/products/create', [ProductController::class, 'create'])->name('admin.products.create');
 Route::post('/products/store', [ProductController::class, 'store'])->name('admin.products.store');
