@@ -13,7 +13,7 @@
             </ul>
         </div>
         @endif
-        <form action="{{ route('category.store')}}" method="post">
+        <form action="{{ route('admin.category.store')}}" method="post">
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">Nama Category</label>
