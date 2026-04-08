@@ -35,7 +35,11 @@
                             <th>Nama Category</th>
                             <th>Created at</th>
                             <th>Updated at</th>
+<<<<<<< HEAD
                             <th width="200px">Aksi</th> 
+=======
+                            <th>Aksi</th>
+>>>>>>> 7010b9ee264acccee7a4bc5046c84b0addfd78be
                         </tr>
                     </thead>
                     <tbody>
@@ -46,12 +50,20 @@
                                 <td>{{ $item->created_at }}</td>
                                 <td>{{ $item->updated_at }}</td>
                                 <td>
+<<<<<<< HEAD
                                     <a href="{{ route('admin.category.edit', Crypt::encrypt($item->id)) }}" class="btn btn-warning btn-sm">Edit</a>
                                     
                                     <form action="{{ route('admin.category.destroy', $item->id) }}" method="post" class="d-inline">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</button>
+=======
+                                    <a href="" class="btn btn-warning btn-sm">Edit</a>
+                                    <form action="{{ route('admin.category.destroy', $item->id) }}" method="post" class="d-inline">
+                                        @csrf
+                                        @method('delete')
+                                        <input type="submit" value="Hapus" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data ini?')">
+>>>>>>> 7010b9ee264acccee7a4bc5046c84b0addfd78be
                                     </form>
                                 </td>
                             </tr>
