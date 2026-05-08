@@ -2,20 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     //
     public function index(){
-        $data['nama'] = "Silvi Nispi";
-        $data['role'] = "Administrator";
-        $data['products'] = [
-            'Laptop',
-            'Smartrphone',
-            'Tablet',
-            'Smartwatch',
-        ];
-        return view('home',$data);
+        $data['categories'] = Category::all();
+        return view('home', $data);
     }
 }

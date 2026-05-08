@@ -21,7 +21,7 @@
 </div>
 <div class="row">
     <div class="col-md-12">
-        <form action="{{ route('admin.products.update', Crypt::encrypt($products->id)) }}" method="post">
+        <form action="{{ route('admin.products.update', Crypt::encrypt($products->id)) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('put')
             <div class="mb-3">
@@ -47,11 +47,15 @@
             </div>
             <div class="mb-3">
                 <label for="image" class="form-label">Image</label>
+                <br>
+                <img src="{{ asset('storage/'.$product->image) }}" alt="" style="width:200px;height:200px">
+                <br>
+                <br>
                 <input type="file" name="image" id="image" class="form-control">
             </div>
             <div class="mb-3">
                 <label class="form-label">Deskripsi Product</label>
-                <textarea name="description" class="form-control">{{ $products->description }}</textarea>
+                <textarea name="description" id="description" cols="30" rows="10" class="form-control">{{ $products->description }}</textarea>
             </div>
             <input type="submit" value="Ubah Data" class="btn btn-primary">
         </form>
