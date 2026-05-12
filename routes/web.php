@@ -6,7 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/admin/login', [AdminController::class, 'login'])->name('admin.login');
 Route::post('/admin/auth', [AdminController::class, 'adminAuth'])->name('admin.auth');
 Route::get('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
@@ -28,6 +28,8 @@ Route::middleware(['auth'])->group(function (){
     Route::put('/products/{id}', [ProductController::class, 'update'])->name('admin.products.update');
     Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('admin.products.destroy');
 });
+Route::get('/detail/{id}', [HomeController::class, 'detail'])->name('home.detail');
+
 
 
 

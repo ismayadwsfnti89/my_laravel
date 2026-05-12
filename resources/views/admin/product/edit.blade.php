@@ -34,7 +34,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Stock Product</label>
-                <input type="number" name="stock" value="{{ $products->stock }}" class="form-control">
+                <input type="number" name="stok" value="{{ $products->stok }}" class="form-control">
             </div>
             <div class="mb-3">
                 <label class="form-label">Category Product</label>
